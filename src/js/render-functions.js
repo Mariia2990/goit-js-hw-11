@@ -35,7 +35,6 @@ export function renderGallery(images) {
   `).join('');
   galleryContainer.innerHTML = markup;
 
-  // Ініціалізація lightbox або оновлення, якщо вже існує
   if (lightbox) {
     lightbox.refresh();
   } else {

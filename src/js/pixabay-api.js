@@ -12,7 +12,6 @@ export function getGallery(queryValue) {
 
   const fullUrl = `${url}?${searchParams.toString()}`;
 
-  // Додаємо return перед fetch для повернення промісу
   return fetch(fullUrl)
     .then(response => {
       if (!response.ok) {
@@ -22,10 +21,10 @@ export function getGallery(queryValue) {
     })
     .then(data => {
       console.log(data);
-      return data; // Повертаємо дані для подальшого використання
+      return data; 
     })
     .catch(error => {
       console.error('There was an error with the fetch operation:', error);
-      throw error; // Перекидаємо помилку для обробки у виклику
+      throw error; 
     });
 }

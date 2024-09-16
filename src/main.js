@@ -12,10 +12,10 @@ const gallery = document.querySelector('.gallery');
 
 
 form.addEventListener("submit", event => {
-  event.preventDefault(); // Зупиняємо стандартну поведінку форми
+  event.preventDefault(); 
 
-  const query = input.value.trim(); // Отримання значення з інпуту
-  if (!query) { // Перевірка, чи поле не порожнє
+  const query = input.value.trim(); 
+  if (!query) { 
     iziToast.error({
       title: 'Error',
       message: 'Please enter a search query.',
@@ -24,29 +24,28 @@ form.addEventListener("submit", event => {
     return;
   }
   
-  clearGallery(); // Очищаємо галерею перед новим запитом
-  addLoader(gallery); // Додаємо індикатор завантаження
+  clearGallery(); 
+  addLoader(gallery); 
 
-  // Викликаємо функцію для отримання галереї зображень
   getGallery(query)
     .then(data => {
-      hideLoading(); // Прибираємо індикатор завантаження
+      hideLoading(); 
       if (!data || data.hits.length === 0) {
         showInfo('Sorry, there are no images matching your search query. Please try again!');
         return;
       }
 
-      renderGallery(data.hits); // Відображаємо отримані зображення
+      renderGallery(data.hits); 
     })
     .catch(error => {
-      console.error('Error fetching images:', error); // Логування помилки
+      console.error('Error fetching images:', error); 
       iziToast.error({
         title: 'Error',
-        message: `Error: ${error.message}`, // Використовуйте зворотні лапки для шаблонних рядків
+        message: `Error: ${error.message}`, 
         position: 'topRight',
       });
     })
     .finally(() => {
-      hideLoading(); // Прибираємо індикатор завантаження
+      hideLoading(); 
     });
 });
