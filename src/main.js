@@ -12,40 +12,39 @@ const gallery = document.querySelector('.gallery');
 
 
 form.addEventListener("submit", event => {
-  event.preventDefault(); 
+event.preventDefault(); 
 
-  const query = input.value.trim(); 
-  if (!query) { 
+const query = input.value.trim(); 
+if (!query) { 
     iziToast.error({
-      title: 'Error',
-      message: 'Please enter a search query.',
-      position: 'topRight',
+    title: 'Error',
+    message: 'Please enter a search query.',
+    position: 'topRight',
     });
     return;
-  }
-  
-  clearGallery(); 
-  addLoader(gallery); 
+}
 
-  getGallery(query)
+    clearGallery(); 
+    addLoader(gallery); 
+
+    getGallery(query)
     .then(data => {
-      hideLoading(); 
-      if (!data || data.hits.length === 0) {
+    hideLoading(); 
+    if (!data || data.hits.length === 0) {
         showInfo('Sorry, there are no images matching your search query. Please try again!');
         return;
-      }
-
-      renderGallery(data.hits); 
-    })
+}
+    renderGallery(data.hits); 
+})
     .catch(error => {
-      console.error('Error fetching images:', error); 
-      iziToast.error({
+    console.error('Error fetching images:', error); 
+    iziToast.error({
         title: 'Error',
         message: `Error: ${error.message}`, 
         position: 'topRight',
-      });
-    })
+});
+})
     .finally(() => {
-      hideLoading(); 
-    });
+    hideLoading(); 
+});
 });
