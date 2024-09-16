@@ -17,8 +17,8 @@ event.preventDefault();
 const query = input.value.trim(); 
 if (!query) { 
     iziToast.error({
-    title: 'Error',
-    message: 'Please enter a search query.',
+    title: `Error`,
+    message: `Please enter a search query.`,
     position: 'topRight',
     });
     return;
@@ -31,15 +31,15 @@ if (!query) {
     .then(data => {
     hideLoading(); 
     if (!data || data.hits.length === 0) {
-        showInfo('Sorry, there are no images matching your search query. Please try again!');
+        showInfo(`Sorry, there are no images matching your search query. Please try again!`);
         return;
 }
     renderGallery(data.hits); 
 })
     .catch(error => {
-    console.error('Error fetching images:', error); 
+    console.error(`Error fetching images:`, error); 
     iziToast.error({
-        title: 'Error',
+        title: `Error`,
         message: `Error: ${error.message}`, 
         position: 'topRight',
 });

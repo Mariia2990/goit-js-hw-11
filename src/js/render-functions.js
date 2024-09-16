@@ -53,7 +53,7 @@ export function clearGallery() {
 
 export function showInfo(message) {
   iziToast.info({
-    title: "Info",
+    title: `Info`,
     message: message,
     position: "topRight",
     backgroundColor: "red",

@@ -4,7 +4,7 @@ const url = "https://pixabay.com/api";
 export function getGallery(query) {
   const searchParams = new URLSearchParams({
     key: keyApi,
-    q: queryValue,
+    q: query,
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: 'true',
@@ -24,7 +24,7 @@ export function getGallery(query) {
       return data; 
     })
     .catch(error => {
-      console.error('There was an error with the fetch operation:', error);
+      console.error(`There was an error with the fetch operation:`, error);
       throw error; 
     });
 }
