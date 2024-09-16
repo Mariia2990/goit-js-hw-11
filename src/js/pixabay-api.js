@@ -1,5 +1,5 @@
 const keyApi = '45922188-6c9bdbb7442dfc44aff321ea7';
-const url = "https://pixabay.com/api";
+const url = "https://pixabay.com/api/";
 
 export function getGallery(query) {
   const searchParams = new URLSearchParams({
