@@ -8,10 +8,10 @@
 @import url('./gallery.css');
 @import url('./form.css');
 @import url('./base.css');
-@import url('./loader.css')
 
 body {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0;
 }
